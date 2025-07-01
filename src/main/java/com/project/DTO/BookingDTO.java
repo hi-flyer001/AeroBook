@@ -14,17 +14,20 @@ public class BookingDTO {
 	
 	private double amount;
 	
+	private int no_of_seats;
+	
 	public BookingDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BookingDTO(int uid, int fid, Date booking_date, String payment_mode, double amount) {
+	public BookingDTO(int uid, int fid, Date booking_date, String payment_mode, double amount, int no_of_seats) {
 		super();
 		this.uid = uid;
 		this.fid = fid;
 		this.booking_date = booking_date;
 		this.payment_mode = payment_mode;
 		this.amount = amount;
+		this.no_of_seats = no_of_seats;
 	}
 
 	public int getUid() {
@@ -67,11 +70,21 @@ public class BookingDTO {
 		this.amount = amount;
 	}
 
+	public int getNo_of_seats() {
+		return no_of_seats;
+	}
+
+	public void setNo_of_seats(int no_of_seats) {
+		this.no_of_seats = no_of_seats;
+	}
+
 	@Override
 	public String toString() {
 		return "BookingDTO [uid=" + uid + ", fid=" + fid + ", booking_date=" + booking_date + ", payment_mode="
-				+ payment_mode + ", amount=" + amount + "]";
+				+ payment_mode + ", amount=" + amount + ", no_of_seats=" + no_of_seats + "]";
 	}
+
+	
 
 	
 	

@@ -26,15 +26,18 @@ public class Booking {
     @JoinColumn(name="flightId")
     private Flight flight;
     
+    private int no_of_seats;
+    
     public Booking() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Booking( Date bookingDate, User user, Flight flight) {
+	public Booking( Date bookingDate, User user, Flight flight,int no_of_seats) {
 		super();
 		this.bookingDate = bookingDate;
 		this.user = user;
 		this.flight = flight;
+		this.no_of_seats=no_of_seats;
 	}
 
 	public long getId() {
@@ -67,6 +70,16 @@ public class Booking {
 
 	public void setFlight(Flight flight) {
 		this.flight = flight;
+	}
+	
+	
+
+	public int getNo_of_seats() {
+		return no_of_seats;
+	}
+
+	public void setNo_of_seats(int no_of_seats) {
+		this.no_of_seats = no_of_seats;
 	}
 
 	@Override

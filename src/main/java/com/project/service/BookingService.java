@@ -13,6 +13,7 @@ public class BookingService {
 	private BookingDao dao;
 	
 	public void book(BookingDTO dto) {
+		 
 		dao.book(dto);
 	}
 

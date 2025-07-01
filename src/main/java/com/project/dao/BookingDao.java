@@ -28,18 +28,31 @@ public class BookingDao {
 		if(u==null || f==null) {
 			throw new RuntimeException("User not found");
 		}
+		if(f.getPrice()!=book.getAmount()) {
+			throw new RuntimeException("please pay valid amount");
+		}
+		if(f.getNo_of_seats()<0) {
+			throw new RuntimeException("no seats available");
+		}
+		
+		
+		
+		f.setNo_of_seats(f.getNo_of_seats()-book.getNo_of_seats());
+		double amount = book.getAmount()*book.getNo_of_seats();
+		
 		Booking b = new Booking();
 		b.setUser(u);
 		b.setFlight(f);
 		b.setBookingDate(new Date());
+		b.setNo_of_seats(book.getNo_of_seats());
 		s.save(b);
 	
 		Payment pay = new Payment();
 		pay.setPayment_mode(book.getPayment_mode());
-		pay.setAmount(book.getAmount());
+		pay.setAmount(amount);
 		pay.setStatus("Success");
 		pay.setBooking(b);
-		
+		s.update(f);
 		
 		s.save(pay);
 		

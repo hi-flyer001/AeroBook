@@ -22,23 +22,27 @@ public class User {
 	private String email;
 	
 	private String password;
+	
+	private boolean verify;
 
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String name, String email, String password) {
+	public User(int uid, String name, String email, String password, boolean verify) {
 		super();
+		this.uid = uid;
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.verify = verify;
 	}
 
-	public int getId() {
+	public int getUid() {
 		return uid;
 	}
 
-	public void setId(int uid) {
+	public void setUid(int uid) {
 		this.uid = uid;
 	}
 
@@ -66,11 +70,21 @@ public class User {
 		this.password = password;
 	}
 
-	@Override
-	public String toString() {
-		return "User [uid=" + uid + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+	public boolean isVerify() {
+		return verify;
 	}
 
+	public void setVerify(boolean verify) {
+		this.verify = verify;
+	}
+
+	@Override
+	public String toString() {
+		return "User [uid=" + uid + ", name=" + name + ", email=" + email + ", password=" + password + ", verify="
+				+ verify + "]";
+	}
+	
+	
 	
 
 	
